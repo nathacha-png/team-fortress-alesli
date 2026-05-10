@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+env/
+*.log
+
+# PHP
+vendor/
+composer.lock
+.env
+
+# Node / JS
+node_modules/
+package-lock.json
+.npm
+
+# Base de datos
+*.sql.gz
+*.dump
+database/backups/*.sql
+
+# IDEs
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Archivos sensibles
+config/secrets.php
+config/database.py
+*.env.local
+*.env.production
