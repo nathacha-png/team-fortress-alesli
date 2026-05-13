@@ -1,0 +1,94 @@
+:root {
+    --pastel-pink: #FFE0EC;
+    --fuchsia-magenta: #E91E63;
+    --soft-pink: #FFB6C1;
+    --light-pink: #FFF0F5;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.brand-font {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+.bg-pastel-pink {
+    background-color: var(--pastel-pink);
+}
+
+.text-fuchsia {
+    color: var(--fuchsia-magenta);
+}
+
+.border-fuchsia {
+    border-color: var(--fuchsia-magenta);
+}
+
+.hover-fuchsia:hover {
+    background-color: var(--fuchsia-magenta);
+    color: white;
+}
+
+.capsule-card {
+    border-radius: 3rem;
+    background: white;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 2rem 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+}
+
+.capsule-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(233, 30, 99, 0.18);
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--fuchsia-magenta);
+}
+
+.nav-link.active {
+    color: var(--fuchsia-magenta);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--fuchsia-magenta);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--light-pink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: var(--fuchsia-magenta);
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(233, 30, 99, 0.15);
+}
+
+@media (max-width: 768px) {
+    .capsule-card {
+        border-radius: 1.5rem;
+    }
+}

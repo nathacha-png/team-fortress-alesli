@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Alesli Floristería</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="floreria.css">
+</head>
+<body class="bg-pastel-pink min-h-screen">
+    
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="brand-font text-2xl font-bold text-fuchsia">
+                    Alesli
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                    <a href="#catalogo" class="nav-link">Catálogo</a>
+                    <a href="#personalizar" class="nav-link">Personalizar</a>
+                    <a href="#nosotros" class="nav-link active">Nosotros</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-fuchsia">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="#inicio" class="nav-link py-2">Inicio</a>
+                    <a href="#catalogo" class="nav-link py-2">Catálogo</a>
+                    <a href="#personalizar" class="nav-link py-2">Personalizar</a>
+                    <a href="#nosotros" class="nav-link active py-2">Nosotros</a>
+                    <a href="#contacto" class="nav-link py-2">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="bg-pastel-pink py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="brand-font text-4xl md:text-6xl font-bold text-fuchsia mb-4">
+                Alesli
+            </h1>
+            <p class="text-lg md:text-xl text-gray-700">
+                Donde cada flor cuenta una historia
+            </p>
+        </div>
+    </section>
+    
+    <!-- Content Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-sm md:text-base text-fuchsia font-semibold tracking-wider mb-4">
+                    SOBRE NOSOTROS
+                </h2>
+                <h3 class="brand-font text-3xl md:text-5xl font-bold mb-6">
+                    La historia de <span class="text-fuchsia">Alesli</span>
+                </h3>
+                <p class="text-gray-700 max-w-3xl mx-auto text-lg leading-relaxed">
+                    En Alesli, creemos que las flores son el lenguaje universal del amor y la alegría. 
+                    Nos dedicamos a crear arreglos florales únicos que transmiten emociones y 
+                    celebran momentos especiales con pasión y dedicación.
+                </p>
+            </div>
+            
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
+                <!-- Card 1: Hecho con amor -->
+                <div class="capsule-card text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-3 text-gray-800">Hecho con amor</h4>
+                    <p class="text-gray-600 text-sm">
+                        Cada arreglo es una pieza única y artesanal
+                    </p>
+                </div>
+                
+                <!-- Card 2: Flores frescas -->
+                <div class="capsule-card text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-3 text-gray-800">Flores frescas</h4>
+                    <p class="text-gray-600 text-sm">
+                        Cosechado de productores locales esa misma mañana
+                    </p>
+                </div>
+                
+                <!-- Card 3: Envío express -->
+                <div class="capsule-card text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-3 text-gray-800">Envío express</h4>
+                    <p class="text-gray-600 text-sm">
+                        Entrega a domicilio el mismo día en la ciudad
+                    </p>
+                </div>
+                
+                <!-- Card 4: Calidad premium -->
+                <div class="capsule-card text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-3 text-gray-800">Calidad premium</h4>
+                    <p class="text-gray-600 text-sm">
+                        Más de 1200 clientes satisfechos lo respaldan
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <!-- Logo -->
+                <div class="brand-font text-2xl font-bold text-fuchsia mb-4 md:mb-0">
+                    Alesli
+                </div>
+                
+                <!-- Slogan -->
+                <div class="text-gray-600 text-center md:text-right">
+                    <p class="text-sm md:text-base">
+                        "Donde cada flor cuenta una historia"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="floreria.js"></script>
+</body>
+</html>
