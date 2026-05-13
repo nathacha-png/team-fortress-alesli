@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Florería Alesli - Diseños Florales Exclusivos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="index.css">
 
         :root {
             --pink-light: #FFE4E1;
@@ -439,7 +434,7 @@
 
         /* Google Fonts Import */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-    </style>
+    </link>
 </head>
 <body>
     <!-- Header -->
@@ -566,7 +561,7 @@
                     <h3 class="preview-title">Tu Ramo</h3>
                     <div class="rose-illustration">🌹</div>
                     <p class="preview-description">Ramo personalizado según tus preferencias</p>
-                    <div class="preview-price">$65.00</div>
+                    <div class="preview-price">170 Bs</div>
                     <button class="add-to-cart">Añadir al carrito</button>
                 </div>
             </div>
@@ -617,114 +612,6 @@
         </div>
     </section>
 
-    <script>
-        // Chip selection functionality
-        function selectChip(chip) {
-            // Remove selected class from siblings in the same container
-            const container = chip.parentElement;
-            const siblings = container.querySelectorAll('.chip');
-            siblings.forEach(sibling => sibling.classList.remove('selected'));
-            
-            // Add selected class to clicked chip
-            chip.classList.add('selected');
-        }
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Active navigation highlighting
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-menu a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Add to cart functionality
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', function() {
-                const productCard = this.closest('.product-card') || this.closest('.preview-card');
-                const productName = productCard.querySelector('.product-title, .preview-title').textContent;
-                
-                // Create notification
-                const notification = document.createElement('div');
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: linear-gradient(135deg, var(--pink-medium), var(--pink-dark));
-                    color: white;
-                    padding: 1rem 1.5rem;
-                    border-radius: 10px;
-                    box-shadow: var(--shadow-hover);
-                    z-index: 10000;
-                    animation: slideIn 0.3s ease;
-                `;
-                notification.innerHTML = `
-                    <strong>✓ ${productName}</strong><br>
-                    Añadido al carrito
-                `;
-                
-                document.body.appendChild(notification);
-                
-                setTimeout(() => {
-                    notification.style.animation = 'slideOut 0.3s ease';
-                    setTimeout(() => notification.remove(), 300);
-                }, 3000);
-            });
-        });
-
-        // Add animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-            
-            @keyframes slideOut {
-                from {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
