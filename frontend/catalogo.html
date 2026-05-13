@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florería Alesli - Catálogo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink-light: #FFE4E1;
+            --pink-medium: #FFB6C1;
+            --pink-dark: #FF69B4;
+            --wine: #722F37;
+            --fuchsia: #FF00FF;
+            --white: #FFFFFF;
+            --gray-light: #F8F9FA;
+            --gray-medium: #6C757D;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #FFE4E1 0%, #FFFFFF 50%, #FFE4E1 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--wine);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--pink-dark);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--gray-medium);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--wine);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--pink-dark);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            background: var(--white);
+            border: 2px solid var(--pink-medium);
+            color: var(--wine);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .nav-btn:hover {
+            background: var(--pink-medium);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--wine);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--pink-medium), var(--pink-dark));
+        }
+
+        /* Catálogo Section */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .product-code {
+            display: inline-block;
+            background: var(--pink-light);
+            color: var(--wine);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .product-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--pink-dark);
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            color: var(--wine);
+            margin: 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .product-description {
+            color: var(--gray-medium);
+            font-size: 0.9rem;
+            margin: 0.5rem 1rem 1rem;
+            line-height: 1.5;
+        }
+
+        .add-to-cart {
+            background: linear-gradient(135deg, var(--pink-medium), var(--pink-dark));
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 1rem;
+            display: inline-block;
+        }
+
+        .add-to-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Google Fonts Import */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="inicio.html" class="logo">
+                <i class="fas fa-spa"></i>
+                Florería Alesli
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="catalogo.html" class="active">Catálogo</a></li>
+                <li><a href="personalizar.html">Personalizar</a></li>
+                <li><a href="quienes-somos.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="#" class="nav-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    Carrito
+                </a>
+                <a href="#" class="nav-btn">
+                    <i class="fas fa-user"></i>
+                    Usuario
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Catálogo Section -->
+    <section id="catalogo">
+        <div class="container">
+            <h2 class="section-title">Diseños Florales</h2>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="public/img/Caja Rosas.png" alt="Caja Rosas" class="product-image">
+                    <span class="product-code">A-1</span>
+                    <div class="product-price">140 Bs</div>
+                    <h3 class="product-title">Caja Rosas</h3>
+                    <p class="product-description">Elegancia natural en caja artesanal</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+                
+                <div class="product-card">
+                    <img src="public/img/Luxury Box.png" alt="Luxury Box" class="product-image">
+                    <span class="product-code">A-2</span>
+                    <div class="product-price">200 Bs</div>
+                    <h3 class="product-title">Luxury Box</h3>
+                    <p class="product-description">Arreglo premium de rosas seleccionadas</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+                
+                <div class="product-card">
+                    <img src="public/img/Cumpleaños.png" alt="Cumpleaños" class="product-image">
+                    <span class="product-code">A-3</span>
+                    <div class="product-price">350 Bs</div>
+                    <h3 class="product-title">Cumpleaños</h3>
+                    <p class="product-description">Incluye globo y diseño floral festivo</p>
+                    <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const productName = productCard.querySelector('.product-title').textContent;
+                
+                // Create notification
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, var(--pink-medium), var(--pink-dark));
+                    color: white;
+                    padding: 1rem 1.5rem;
+                    border-radius: 10px;
+                    box-shadow: var(--shadow-hover);
+                    z-index: 10000;
+                    animation: slideIn 0.3s ease;
+                `;
+                notification.innerHTML = `
+                    <strong>✓ ${productName}</strong><br>
+                    Añadido al carrito
+                `;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+            });
+        });
+
+        // Add animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
